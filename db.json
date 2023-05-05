@@ -1,72 +1,132 @@
-{
+{ 
+  "user": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john.doe@gmail.com",
+      "address": "123, Charming Avenue, New York, USA"
+    }
+  ],
   "products": [
     {
       "id": 1,
-      "title": "iPhone SE",
-      "description": "An apple mobile which is nothing like apple",
-      "colors": ["#FFFFFF", "#000000", "#FF00FF", "#FFFF00"],
-      "price": 549,
+      "title": "Full Sleeve Cover Shirt",
+      "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear.",
+      "colors":  ["#FFFFFF", "#F8B195", "#F67280","#E6E6FA", "#B0E0E6"],
+      "price": 40.00,
       "stock": 94,
-      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQwKr7zMFfExEN-YNN32xATQpDD77lbJckzFIW2WkCNdd5lPqa_w4J1dqLkF84QSSxHFydCe8HEDncxGcWt2khXombVUV9LmGC9TG4eHaudmyiGJmHUP64voQ&usqp=CAE"
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145846/ecommerce/01_tjrzih.png"
     },
     {
       "id": 2,
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "colors": ["#FFFFFF", "#000000", "#FF0000", "#00FF00", "#0000FF"],
-      "price": 899,
+      "title": "Volunteer Half Blue",
+      "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered",
+      "colors": ["#F0ECEC", "#D5D5D5", "#F5B9D5", "#E6E6FA", "#B0E0E6"],
+      "price": 35.0,
       "stock": 34,
-      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRTFPAFff1wQxYUkPgxuSZlDeN0h3kG8HnZWcPDvAOqzZQPYfT1SEpS9ZkXWzkmVD4NttG0sGozsskxas0IJI7VNWyohiB4D6pez0qH2GVJfXeOuHr5Dbc1WA&usqp=CAE"
+      "sizes": ["S", "M", "L"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145846/ecommerce/02_wiqnzs.png"
     },
     {
       "id": 3,
-      "title": "Samsung Galaxy S9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "colors": ["#FFFFFF", "#000000", "#FF0000", "#00FF00", "#0000FF"],
-      "price": 1249,
+      "title": "Double Yellow Shirt",
+      "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long",
+      "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
+      "price": 36.0,
       "stock": 36,
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT10uWoa7FbWnAIfy0jHyU4tf4ZMMGNoEXmsmEpwJimpyiNNYG4z7t6qqok29GtGFfV3RLGrfzrBL3T5uJICDcrP_CxcvBMwDldzkEDOXb-ZVOnakvg0RYd&usqp=CAE"
+      "sizes": ["M", "L", "XL"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/03_kkjic3.png"
     },
     {
       "id": 4,
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
+      "title": "Long Belly Grey Pant",
+      "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual",
+      "price": 32.0,
+      "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
+      "sizes": ["S", "M", "L"],
       "stock": 123,
-      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTUFJxxTVxcgYpcUVLtkOSQBasnZw5e9kr2Cn44MAVzjtub9wNZYvvSo7XeIsqtf3ttdlDUOPaSnQ_gFikY-MSGZX_avdRzFavqzP5IiPEG6v9gSrPkJINf&usqp=CAE"
-    },
-    {    
-        "id": 5,    
-        "title": "Huawei P30",    
-        "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",    
-        "price": 499,    
-        "stock": 32,    
-        "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR5K0WdzB7sVOMRHlOzsE3ipNBxl5TLB2UNZpS1sXlK8sG7ciWMK1DVtP3-iX7oSmDj2N8zdGW2YZT5oNYh6zeSvWnSnwZd-LE0kIovMCB2SVaSrGzO07WP&usqp=CAE"
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/04_ejadlm.png"
     },
     {
-        "id": 6,
-        "title": "MacBook Pro",
-        "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-        "price": 1749,
-        "stock": 83,
-        "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT3B-PZQv5JkWRMxizaeJ9kc79an7UuJe-NK_Y_j9UOiKglAHNKj0TYNPPaidcJ2bPBhcCBw5Kmq0RaQkHIyY6SxK7cP0pZbQL6EfjfGsE&usqp=CAE"
+      "id": 5,
+      "title": "Full Sleeve Cover Shirt",
+      "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear",
+      "colors": ["#FFFFFF", "#F8B195", "#F67280", "#E6E6FA", "#B0E0E6"],
+      "price": 40,
+      "stock": 32,
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/05_oalvae.png"
     },
     {
-        "id": 7,
-        "title": "Samsung Galaxy Book",
-        "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-        "price": 1499,
-        "stock": 50,
-        "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSIQYzmNH_eeP4jjl_13Dih_w9Qoif6P1f6OoHa89-VQPPG8RjY5Kd3dFqh4Mh0gpqi3J5HoLwSaGYcMhKZ61VZKZAaTeInOs5a71IlTjrHWUl8Xe68lvuiag&usqp=CAE"
+      "id": 6,
+      "title": "Volunteer Half Blue",
+      "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered",
+      "colors": ["#F0ECEC", "#D5D5D5", "#F5B9D5", "#E6E6FA", "#B0E0E6"],
+      "price": 35.0,
+      "stock": 83,
+      "sizes": ["S", "M", "L"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/06_k6x3t2.png"
     },
     {
-        "id": 8,
-        "title": "Microsoft Surface Laptop 4",
-        "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
-        "price": 1499,
-        "stock": 68,
-        "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTwxdXa-8T51VVmFXWtT3UTZ0c5M0Kxcl2PgKnM5u5g2YD0KVUkvakb2VQ5gUZ_KqOBg7iKMRghaeq69uWAWx3XEJciZW-V53vIPThtN9rKHZcJT2Nmbm81sw&usqp=CAE"
+      "id": 7,
+      "title": "Double Yellow Shirt",
+      "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long",
+      "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
+      "price": 36.0,
+      "sizes": ["S", "M", "L"],
+      "stock": 50,
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/07_gw97mj.png"
+    },
+    {
+      "id": 8,
+      "title": "Long Belly Grey Pant",
+      "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual.",
+      "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
+      "price": 32.0,
+      "stock": 68,
+      "sizes": ["S", "M", "L"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/08_cwp1m3.png"
+    },
+    {
+      "id": 9,
+      "title": "Full Sleeve Cover Shirt",
+      "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear.",
+      "colors": ["#FFFFFF", "#F8B195", "#F67280", "#E6E6FA", "#B0E0E6"],
+      "price": 40.0,
+      "stock": 100,
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/09_vmtgjm.png"
+    },
+    {
+      "id": 10,
+      "title": "Double Yellow Shirt",
+      "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long.",
+      "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
+      "price": 36.0,
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": 100,
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683147445/ecommerce/10_fqbcxj.png"
+    },
+    {
+      "id": 11,
+      "title": "Volunteer Half Blue",
+      "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered.",
+      "colors": ["#F0ECEC", "#D5D5D5", "#F5B9D5", "#E6E6FA", "#B0E0E6"],
+      "price": 35.0,
+      "stock": 100,
+      "sizes": ["S", "L", "XL"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683147445/ecommerce/11_yiggri.png"
+    },
+    {
+      "id": 12,
+      "title": "Long Belly Grey Pant",
+      "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual.",
+      "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
+      "price": 32.0,
+      "stock": 100,
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/11_s6mrja.png"
     }
-
   ]
 }
