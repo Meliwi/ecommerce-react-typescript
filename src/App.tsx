@@ -3,6 +3,7 @@ import RootLayout from "./pages/Root"
 import Home from "./pages/Home"
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import {CartProvider} from "./context/cart";
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,13 @@ const router = createBrowserRouter([
   }
 ])
 
-function App() {
-  return ( 
-     <div className="max-w-screen-xl mx-auto">
-        <RouterProvider  router={router} />
-     </div>
+function App() : JSX.Element {
+  return (
+     <CartProvider>
+        <div className="max-w-screen-xl mx-auto">
+            <RouterProvider  router={router} />
+        </div>
+     </CartProvider>
   )
 }
 

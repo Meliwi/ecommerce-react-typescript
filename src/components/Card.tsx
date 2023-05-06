@@ -5,7 +5,7 @@ interface CardProps {
   clickHandler: (id: number) => void;
 }
 
-function Card({product, clickHandler}: CardProps) {
+function Card({product, clickHandler}: CardProps) : JSX.Element {
   return (
     <div className="mb-5">
       <div onClick={() => clickHandler(product.id)} className="card-image flex justify-center items-center w-72 h-[22rem] bg-[#FAFAFA] rounded-md border-solid border-[1px] border-[#EAEAEA] mb-2 cursor-pointer">
@@ -17,7 +17,7 @@ function Card({product, clickHandler}: CardProps) {
             {product.title}
           </h4>
         </div>
-        <div className="card-description">
+        <div className="card-description flex items-center gap-4">
           <p className="text-[#6995B1] font-light text-xl leading-10">
             ${product.price}.00
           </p>

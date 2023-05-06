@@ -128,5 +128,8 @@
       "sizes": ["S", "M", "L", "XL"],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/11_s6mrja.png"
     }
+  ], 
+  "cart": [
+
   ]
 }

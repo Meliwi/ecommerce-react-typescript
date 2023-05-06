@@ -4,7 +4,7 @@ import { Product } from "../interfaces/Product";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
 
-function Products() {
+function Products() : JSX.Element {
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
   
