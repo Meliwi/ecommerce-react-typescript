@@ -34,7 +34,7 @@
       "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long",
       "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
       "price": 36.0,
-      "stock": 36,
+      "stock": 0,
       "sizes": ["M", "L", "XL"],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/03_kkjic3.png"
     },

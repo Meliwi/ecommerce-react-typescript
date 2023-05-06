@@ -21,6 +21,11 @@ function Card({product, clickHandler}: CardProps) {
           <p className="text-[#6995B1] font-light text-xl leading-10">
             ${product.price}.00
           </p>
+          {
+            product.stock === 0 ? (
+              <p className="text-[#555555] text-base">Out of Stock</p>
+            ): null
+          }
         </div>
       </div>
     </div>

@@ -7,10 +7,17 @@ import { useNavigate } from "react-router-dom";
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
+  
   useEffect(() => {
-    getProducts().then((res) => {
-      setProducts(res);
-    });
+    async function fetchData() {
+      try {
+        const res = await getProducts();
+        setProducts(res);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
   }, []);
 
   const clickHandler = (id: number) => {
