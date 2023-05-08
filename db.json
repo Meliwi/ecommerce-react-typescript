@@ -16,6 +16,7 @@
       "price": 40.00,
       "stock": 94,
       "sizes": ["S", "M", "L", "XL"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145846/ecommerce/01_tjrzih.png"
     },
     {
@@ -26,6 +27,7 @@
       "price": 35.0,
       "stock": 34,
       "sizes": ["S", "M", "L"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145846/ecommerce/02_wiqnzs.png"
     },
     {
@@ -36,6 +38,7 @@
       "price": 36.0,
       "stock": 0,
       "sizes": ["M", "L", "XL"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/03_kkjic3.png"
     },
     {
@@ -46,6 +49,7 @@
       "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
       "sizes": ["S", "M", "L"],
       "stock": 123,
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/04_ejadlm.png"
     },
     {
@@ -56,6 +60,7 @@
       "price": 40,
       "stock": 32,
       "sizes": ["S", "M", "L", "XL"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/05_oalvae.png"
     },
     {
@@ -66,6 +71,7 @@
       "price": 35.0,
       "stock": 83,
       "sizes": ["S", "M", "L"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/06_k6x3t2.png"
     },
     {
@@ -76,6 +82,7 @@
       "price": 36.0,
       "sizes": ["S", "M", "L"],
       "stock": 50,
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/07_gw97mj.png"
     },
     {
@@ -86,6 +93,7 @@
       "price": 32.0,
       "stock": 68,
       "sizes": ["S", "M", "L"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/08_cwp1m3.png"
     },
     {
@@ -96,6 +104,7 @@
       "price": 40.0,
       "stock": 100,
       "sizes": ["S", "M", "L", "XL"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/09_vmtgjm.png"
     },
     {
@@ -106,6 +115,7 @@
       "price": 36.0,
       "sizes": ["S", "M", "L", "XL"],
       "stock": 100,
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683147445/ecommerce/10_fqbcxj.png"
     },
     {
@@ -116,6 +126,7 @@
       "price": 35.0,
       "stock": 100,
       "sizes": ["S", "L", "XL"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683147445/ecommerce/11_yiggri.png"
     },
     {
@@ -126,6 +137,7 @@
       "price": 32.0,
       "stock": 100,
       "sizes": ["S", "M", "L", "XL"],
+      "quantity": 1,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/11_s6mrja.png"
     }
   ], 

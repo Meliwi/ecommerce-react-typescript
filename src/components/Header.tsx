@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import { Cart } from './Cart';
+import {AiOutlineUser} from "react-icons/ai";
+
 function Header (): JSX.Element {
     return (
-      <header className="py-8 flex justify-between">
+      <header className="py-8 flex justify-between items-center">
         <NavLink to="/">
           <img src={logo} alt="logo" />
         </NavLink>
@@ -35,7 +37,10 @@ function Header (): JSX.Element {
             </li>
           </ul>
         </nav>
-        <Cart />
+        <div className='flex'>
+            <NavLink to="/cart"> <Cart /> </NavLink>
+            <NavLink to="/login"> <AiOutlineUser className="text-2xl ml-4"/> </NavLink>
+        </div>
       </header>
     );
 }

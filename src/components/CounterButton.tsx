@@ -6,13 +6,14 @@ interface CounterButtonProps {
 }
 
 function CounterButton ({product} : CounterButtonProps) : JSX.Element {
-  const { handleQuantity, cart } = useCart();
-  console.log(cart)
+  const { handleQuantity, findProductQuantity} = useCart();
+  const valueQuantity = findProductQuantity(product?.id);
     return (
       <div className="custom-number-input flex">
         <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent">
           <button
             data-action="decrement"
+            onClick={() => handleQuantity(product!, false)}
             className="border text-gray-600 h-full w-20 rounded-l cursor-pointer outline-none"
           >
             <span className="m-auto text-2xl font-thin">−</span>
@@ -21,7 +22,8 @@ function CounterButton ({product} : CounterButtonProps) : JSX.Element {
             type="number"
             className="outline-none border focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
             name="custom-input-number"
-            value="1"
+            readOnly
+            value={valueQuantity ? valueQuantity : 1}
           ></input>
           <button
             data-action="increment"
