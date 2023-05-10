@@ -1,17 +1,18 @@
-import { useCart } from "../hooks/useCart";
-import { Product } from '../interfaces/Product';
+import { useCart } from "../../hooks/useCart";
+import { CartProduct } from "../../interfaces/CartProduct";
 
 interface CounterButtonProps {
-  product: Product | null;
+  product: CartProduct | null;
+  valueQuantity: number;
 }
 
-function CounterButton ({product} : CounterButtonProps) : JSX.Element {
-  const { handleQuantity, findProductQuantity} = useCart();
-  const valueQuantity = findProductQuantity(product?.id);
+function CounterButton ({product, valueQuantity} : CounterButtonProps) : JSX.Element {
+  const { handleQuantity, } = useCart();
     return (
       <div className="custom-number-input flex">
         <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent">
           <button
+            type="button"
             data-action="decrement"
             onClick={() => handleQuantity(product!, false)}
             className="border text-gray-600 h-full w-20 rounded-l cursor-pointer outline-none"
@@ -26,6 +27,7 @@ function CounterButton ({product} : CounterButtonProps) : JSX.Element {
             value={valueQuantity ? valueQuantity : 1}
           ></input>
           <button
+            type="button"
             data-action="increment"
             onClick={() => handleQuantity(product!, true)}
             className="border text-gray-600 h-full w-20 rounded-r cursor-pointer"

@@ -1,4 +1,4 @@
-import { Product } from "../interfaces/Product";
+import { Product } from "../../interfaces/Product";
 
 interface CardProps {
   product: Product;
@@ -23,7 +23,7 @@ function Card({product, clickHandler}: CardProps) : JSX.Element {
           </p>
           {
             product.stock === 0 ? (
-              <p className="text-[#555555] text-base">Out of Stock</p>
+              <p className="text-[#555555] text-base border border-red-400 bg-red-300 px-4">Out of Stock</p>
             ): null
           }
         </div>

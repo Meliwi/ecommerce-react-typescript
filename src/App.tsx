@@ -1,10 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { Provider } from "react-redux";
 import RootLayout from "./pages/Root"
 import Home from "./pages/Home"
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import {CartProvider} from "./context/cart";
 import CartPage from "./pages/Cart";
+import store from "../store";
 
 const router = createBrowserRouter([
   {
@@ -21,11 +23,13 @@ const router = createBrowserRouter([
 
 function App() : JSX.Element {
   return (
-     <CartProvider>
-        <div className="max-w-screen-xl mx-auto">
-            <RouterProvider  router={router} />
-        </div>
-     </CartProvider>
+    <Provider store={store}>
+      <CartProvider>
+          <div className="max-w-screen-xl mx-auto">
+              <RouterProvider  router={router} />
+          </div>
+      </CartProvider>
+    </Provider>
   )
 }
 

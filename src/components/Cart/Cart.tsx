@@ -1,5 +1,5 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useCart } from "../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 import { useEffect, useState } from "react";
 
 export function Cart(): JSX.Element {

@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getProducts } from "../utilities/productsAxios";
 import { Product } from "../interfaces/Product";
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectProducts, setProducts } from "../reducers/productSlice";
 
 function Products() : JSX.Element {
-  const [products, setProducts] = useState<Product[]>([]);
+  const dispatch = useDispatch();
+  const products: Product[] = useSelector(selectProducts);
   const navigate = useNavigate();
   
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await getProducts();
-        setProducts(res);
+        dispatch(setProducts(res));
       } catch (error) {
-        console.error(error);
+        throw error;
       }
     }
     fetchData();

@@ -11,12 +11,14 @@
     "dev:all": "concurrently \"yarn api\" \"yarn dev\""
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.3.6",
     "concurrently": "^8.0.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
     "yup": "^1.1.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.svg';
-import { Cart } from './Cart';
+import logo from '../../assets/logo.svg';
+import { Cart } from '../Cart/Cart';
 import {AiOutlineUser} from "react-icons/ai";
 
 function Header (): JSX.Element {
