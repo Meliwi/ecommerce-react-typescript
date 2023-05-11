@@ -1,7 +1,8 @@
 import { useCart } from '../hooks/useCart';
 import { CiTrash } from "react-icons/ci";
-import CounterButton from '../components/Counter/CounterButton';
 import { useEffect, useState } from 'react';
+import CounterButton from '../components/Counter/CounterButton';
+import Invoice from '../components/Invoice/Invoice';
 
 function CartPage(){
     const {cart, removeFromCart, clearCart} = useCart();
@@ -17,33 +18,37 @@ function CartPage(){
 
     return (
         <div>
-          <div className="flex justify-between">
-            <h4 className="text-2xl	font['Inter'] font-extrabold mb-10">
+          <div className="flex gap-[30%] mb-10">
+            <h4 className="text-2xl	font['Inter'] font-extrabold">
               Shopping Cart
             </h4>
-            <button
-              onClick={() => clearCart()}
-              className="flex items-center gap-2"
-            >
-              Remove
-              <CiTrash />
-            </button>
+            {
+              cart.length === 0 ? null : (
+                <button
+                  onClick={() => clearCart()}
+                  className="flex items-center gap-2"
+                >
+                  <CiTrash />
+                  Remove
+                </button>
+              )
+            }
           </div>
           {cart.length === 0 ? (
             <div> Your cart is empty </div>
           ) : (
-            <div className='flex gap-4'>
-              <div>
-                <div className="grid grid-cols-3 mb-5 gap-6">
-                  <h3 className="text-[#555555]">Product</h3>
-                  <h3 className="text-[#555555]">Quantity</h3>
-                  <h3 className="text-[#555555]">Price</h3>
+            <div className='grid grid-cols-10 gap-5'>
+              <div className='col-span-6'>
+                <div className="grid grid-cols-7 mb-5 gap-6">
+                  <h3 className="col-span-3 text-[#555555]">Product</h3>
+                  <h3 className="col-span-2 text-[#555555]">Quantity</h3>
+                  <h3 className="col-span-2 text-[#555555]">Price</h3>
                 </div>
                 <div className="border-[0.1rem] border-gray-100 mb-5"></div>
                 <div>
                   {cart.map((product) => (
-                    <div key={product?.id} className="grid grid-cols-3 gap-6">
-                      <div className="flex mb-5 gap-5">
+                    <div key={product?.id} className="grid grid-cols-7 gap-6">
+                      <div className="flex mb-5 gap-5 col-span-3">
                         <img
                           className="w-[6rem] rounded-md"
                           src={product?.image}
@@ -61,7 +66,7 @@ function CartPage(){
                           </div>
                         </div>
                       </div>
-                      <div className="flex flex-col gap-5">
+                      <div className="flex flex-col gap-5 col-span-2">
                         <CounterButton
                           product={product}
                           valueQuantity={product?.quantity}
@@ -70,35 +75,18 @@ function CartPage(){
                           onClick={() => removeFromCart(product)}
                           className="flex items-center gap-2"
                         >
-                          Remove
                           <CiTrash />
+                          Remove
                         </button>
                       </div>
-                      <div className="flex flex-col gap-5">
+                      <div className="flex flex-col gap-5 col-span-2">
                         ${product.price}.00
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="w-1/4 border border-gray-100 p-7 rounded-lg gap-4 flex flex-col">
-                <div className="flex justify-between">
-                  <p className="text-[#555555]">Subtotal:</p>
-                  <p className="text-[#555555]">${total}</p>
-                </div>
-                <div className="flex justify-between">
-                  <p className="text-[#555555]">Discount:</p>
-                  <p className="text-[#555555]">$00.00</p>
-                </div>
-                <div className="border-[0.1rem] border-dashed border-gray-100 mb-5"></div>
-                <div className="flex justify-between">
-                  <p className="text-[#555555]">Total:</p>
-                  <p className="text-[#555555]">${total}.00</p>
-                </div>
-                <button className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-100">
-                  Checkout now
-                </button>
-              </div>
+              <Invoice total={total} payment={false} />
             </div>
           )}
         </div>

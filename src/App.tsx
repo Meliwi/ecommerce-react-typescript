@@ -7,6 +7,7 @@ import ProductDetail from "./pages/ProductDetail";
 import {CartProvider} from "./context/cart";
 import CartPage from "./pages/Cart";
 import store from "../store";
+import CheckoutPage from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path:"/products", element: <Products/>},
       { path: "/products/:id", element: <ProductDetail/>},
-      { path: "/cart", element: <CartPage/>}
+      { path: "/cart", element: <CartPage/>},
+      { path: "/checkout", element: <CheckoutPage />}
     ]
   }
 ])
