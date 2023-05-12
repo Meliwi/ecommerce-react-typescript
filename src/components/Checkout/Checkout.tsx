@@ -2,26 +2,38 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useEffect } from "react";
 import { getUser } from "../../utilities/userAxios";
+import { useDispatch } from "react-redux";
+import { setEnablePayment } from "../../reducers/paymentSlice";
 
 function Checkout(): JSX.Element {
+    const dispatch = useDispatch();
+
     const formik = useFormik({
-        initialValues: {
-            fullname: "",
-            email: "",
-            confirmationEmail: "",
-            phoneNumber: "",
-            address: "",
-            city: "",
-        },
-        validationSchema: yup.object().shape({
-            fullname: yup.string().required("Fullname is required"),
-            email: yup.string().required("Email is required"),
-            confirmationEmail: yup.string().required("Confirmation email is required"),
-            phoneNumber: yup.string().required("Phone number is required"),
-            address: yup.string().required("Address is required"),
-            city: yup.string().required("City is required"),
-        }),
-        onSubmit: () => {},
+      initialValues: {
+        fullname: "",
+        email: "",
+        confirmationEmail: "",
+        phoneNumber: "",
+        address: "",
+        city: "",
+      },
+      validationSchema: yup.object().shape({
+        fullname: yup.string().required("Fullname is required"),
+        email: yup.string().required("Email is required"),
+        confirmationEmail: yup
+          .string()
+          .required("Confirmation email is required"),
+        phoneNumber: yup.string().required("Phone number is required"),
+        address: yup.string().required("Address is required"),
+        city: yup.string().required("City is required"),
+      }),
+      onSubmit: () => {
+        if(formik.isValid) {
+            console.log("valid")
+          dispatch(setEnablePayment(true))
+        }
+      },
+      enableReinitialize: true,
     });
 
     useEffect(() => {
@@ -37,7 +49,7 @@ function Checkout(): JSX.Element {
 
     return (
       <div>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <div className="mb-4 flex flex-col gap-4">
             <div>
               <label className="block text-gray-700 text-sm mb-2">
@@ -89,7 +101,8 @@ function Checkout(): JSX.Element {
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 name="phoneNumber"
                 id="phoneNumber"
-                type="text"
+                type="number"
+                pattern="[0-9]*"
                 placeholder="Enter your phone number"
                 value={formik.values.phoneNumber}
                 onChange={formik.handleChange}
@@ -110,9 +123,7 @@ function Checkout(): JSX.Element {
               />
             </div>
             <div>
-              <label className="block text-gray-700 text-sm mb-2">
-                City*
-              </label>
+              <label className="block text-gray-700 text-sm mb-2">City*</label>
               <input
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 name="city"
@@ -124,6 +135,9 @@ function Checkout(): JSX.Element {
               />
             </div>
           </div>
+          <button className="bg-black text-white p-3 rounded-lg w-1/5" type="submit">
+            Save
+          </button>
         </form>
       </div>
     );

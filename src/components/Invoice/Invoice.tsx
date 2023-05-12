@@ -1,4 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, json } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectEnablePayment } from "../../reducers/paymentSlice";
+import { useCart } from "../../hooks/useCart";
+import { updateProductStock } from "../../reducers/productSlice";
+import { useRecoilState } from "recoil";
+import { shoppingHistoryState } from "../../atoms";
+import { useLocation } from "react-router-dom";
 
 interface InvoiceProps {
   total: number;
@@ -6,6 +13,20 @@ interface InvoiceProps {
 }
 
 function Invoice({total, payment}: InvoiceProps) : JSX.Element {
+    const enableButtonPayment = useSelector(selectEnablePayment);
+    const { cart } = useCart();
+    const dispatch = useDispatch();
+    const [shoppingHistory, setShoppingHistory]= useRecoilState(shoppingHistoryState);
+    
+    const handleClick = () => {
+      if(enableButtonPayment) {
+        dispatch(updateProductStock(cart));
+        console.log(location.pathname)
+        if (location.pathname === "/payment") {
+          setShoppingHistory([...shoppingHistory, ...cart]);
+        }
+      }
+    }
     return (
       <div className="col-span-3">
         <div className="w-full border border-gray-100 p-7 rounded-lg gap-4 flex flex-col">
@@ -24,12 +45,23 @@ function Invoice({total, payment}: InvoiceProps) : JSX.Element {
           </div>
           <div className="flex w-full">
             <NavLink
-              to={payment ? "/checkout" : "/checkout"}
+              to={
+                payment
+                  ? enableButtonPayment
+                    ? "/payment"
+                    : "/pay"
+                  : "/checkout"
+              }
               className="flex w-full"
             >
               {payment ? (
-                <button className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-full">
-                  Continue to payment
+                <button
+                  disabled={!enableButtonPayment}
+                  onClick={handleClick}
+                  className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-full"
+                  style={{ opacity: enableButtonPayment ? "1" : "0.5" }}
+                >
+                  {enableButtonPayment ? `Pay $${total}` : "Continue Payment"}
                 </button>
               ) : (
                 <button className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-full">

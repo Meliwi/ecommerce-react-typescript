@@ -5,10 +5,14 @@ import Card from "../components/Card/Card";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectProducts, setProducts } from "../reducers/productSlice";
+import { useRecoilValue } from 'recoil';
+import { shoppingHistoryState } from "../atoms";
 
 function Products() : JSX.Element {
   const dispatch = useDispatch();
   const products: Product[] = useSelector(selectProducts);
+  const shoppingHistory = useRecoilValue(shoppingHistoryState);
+  console.log('shopping history', shoppingHistory)
   const navigate = useNavigate();
   
   useEffect(() => {
