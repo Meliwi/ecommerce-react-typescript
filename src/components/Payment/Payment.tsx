@@ -1,7 +1,3 @@
-import { useFormik } from "formik";
-import { useEffect } from "react";
-import * as yup from 'yup';
-
 function Payment (): JSX.Element {
         return (
           <div className="w-2/4">

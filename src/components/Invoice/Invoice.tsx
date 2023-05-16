@@ -1,32 +1,49 @@
-import { NavLink, json } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectEnablePayment } from "../../reducers/paymentSlice";
 import { useCart } from "../../hooks/useCart";
-import { updateProductStock } from "../../reducers/productSlice";
+import { selectProducts, updateProductStock } from "../../reducers/productSlice";
 import { useRecoilState } from "recoil";
 import { shoppingHistoryState } from "../../atoms";
-import { useLocation } from "react-router-dom";
-
+import { updateProductStockJSON } from "../../utilities/productsAxios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 interface InvoiceProps {
   total: number;
   payment: boolean;
 }
 
 function Invoice({total, payment}: InvoiceProps) : JSX.Element {
+    const navigate = useNavigate();
     const enableButtonPayment = useSelector(selectEnablePayment);
     const { cart } = useCart();
     const dispatch = useDispatch();
+    const updatedProducts = useSelector(selectProducts)
+    const [enableUpdateAPI, setEnableUpdateAPI] = useState(false)
     const [shoppingHistory, setShoppingHistory]= useRecoilState(shoppingHistoryState);
     
-    const handleClick = () => {
-      if(enableButtonPayment) {
+    const handleClick = async () => {
+      if (enableButtonPayment && location.pathname === "/payment") {
         dispatch(updateProductStock(cart));
-        console.log(location.pathname)
-        if (location.pathname === "/payment") {
-          setShoppingHistory([...shoppingHistory, ...cart]);
+        setShoppingHistory([...shoppingHistory, ...cart]);
+        setEnableUpdateAPI(true);
+      }
+    };
+
+    useEffect(() => {
+      const handleUpdateStockAPI = async () => {
+        try {
+          await updateProductStockJSON(updatedProducts);
+          navigate("/transaction");
+        } catch (error) {
+          throw error;
         }
       }
-    }
+      if(enableUpdateAPI){
+        handleUpdateStockAPI();
+      }
+    },[enableUpdateAPI])
+
     return (
       <div className="col-span-3">
         <div className="w-full border border-gray-100 p-7 rounded-lg gap-4 flex flex-col">

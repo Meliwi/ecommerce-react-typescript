@@ -21,13 +21,14 @@ const getProductDetail = async (id: string): Promise<Product> => {
 
 const updateProductStockJSON = async (products: Product[]) => {
   try {
-    products.map(async (product) =>  {
-      await axios.put(`http://localhost:3000/products/${product.id}`);
-    })
+    const requests = products.map((product) =>
+      axios.put(`http://localhost:3000/products/${product.id}`, product)
+    );
+    await Promise.all(requests);
   } catch (error: any) {
     throw new Error("Error updating product stock: " + error.message);
   }
-}
+};
 
 
 export { getProducts, getProductDetail, updateProductStockJSON };

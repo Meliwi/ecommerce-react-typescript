@@ -1,5 +1,13 @@
+import FlashSales from "../components/Flash/Flash";
+import Hero from "../components/Hero/Hero";
+
 function Home() {
-    return <div>Home</div>;
+    return (
+        <div>
+            <Hero />
+            <FlashSales />
+        </div>
+    );
 }
 
 

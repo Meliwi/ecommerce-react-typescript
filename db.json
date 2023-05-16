@@ -1,9 +1,11 @@
-{ 
+{
   "user": [
     {
       "id": 1,
       "name": "John Doe",
       "email": "john.doe@gmail.com",
+      "confirmationEmail": "john.doe@gmail.com",
+      "phone": 3333123,
       "address": "123, Charming Avenue",
       "city": "New York"
     }
@@ -13,69 +15,140 @@
       "id": 1,
       "title": "Full Sleeve Cover Shirt",
       "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear.",
-      "colors":  ["#FFFFFF", "#F8B195", "#F67280","#E6E6FA", "#B0E0E6"],
-      "price": 40.00,
-      "stock": 94,
-      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        "#FFFFFF",
+        "#F8B195",
+        "#F67280",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 40,
+      "stock": 81,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145846/ecommerce/01_tjrzih.png"
     },
     {
       "id": 2,
       "title": "Volunteer Half Blue",
       "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered",
-      "colors": ["#F0ECEC", "#D5D5D5", "#F5B9D5", "#E6E6FA", "#B0E0E6"],
-      "price": 35.0,
-      "stock": 34,
-      "sizes": ["S", "M", "L"],
+      "colors": [
+        "#F0ECEC",
+        "#D5D5D5",
+        "#F5B9D5",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 35,
+      "stock": 31,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145846/ecommerce/02_wiqnzs.png"
     },
     {
       "id": 3,
       "title": "Double Yellow Shirt",
       "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long",
-      "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
-      "price": 36.0,
+      "colors": [
+        "#FFFFFF",
+        "#F0E68C",
+        "#FFDAB9",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 36,
       "stock": 0,
-      "sizes": ["M", "L", "XL"],
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/03_kkjic3.png"
     },
     {
       "id": 4,
       "title": "Long Belly Grey Pant",
       "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual",
-      "price": 32.0,
-      "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
-      "sizes": ["S", "M", "L"],
-      "stock": 123,
+      "price": 32,
+      "colors": [
+        "#A8A8A8",
+        "#303030",
+        "#D3D3D3",
+        "#F5F5F5"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "stock": 48,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/04_ejadlm.png"
     },
     {
       "id": 5,
       "title": "Full Sleeve Cover Shirt",
       "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear",
-      "colors": ["#FFFFFF", "#F8B195", "#F67280", "#E6E6FA", "#B0E0E6"],
+      "colors": [
+        "#FFFFFF",
+        "#F8B195",
+        "#F67280",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
       "price": 40,
       "stock": 32,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/05_oalvae.png"
     },
     {
       "id": 6,
       "title": "Volunteer Half Blue",
       "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered",
-      "colors": ["#F0ECEC", "#D5D5D5", "#F5B9D5", "#E6E6FA", "#B0E0E6"],
-      "price": 35.0,
+      "colors": [
+        "#F0ECEC",
+        "#D5D5D5",
+        "#F5B9D5",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 35,
       "stock": 83,
-      "sizes": ["S", "M", "L"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/06_k6x3t2.png"
     },
     {
       "id": 7,
       "title": "Double Yellow Shirt",
       "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long",
-      "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
-      "price": 36.0,
-      "sizes": ["S", "M", "L"],
+      "colors": [
+        "#FFFFFF",
+        "#F0E68C",
+        "#FFDAB9",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 36,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
       "stock": 50,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/07_gw97mj.png"
     },
@@ -83,29 +156,60 @@
       "id": 8,
       "title": "Long Belly Grey Pant",
       "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual.",
-      "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
-      "price": 32.0,
+      "colors": [
+        "#A8A8A8",
+        "#303030",
+        "#D3D3D3",
+        "#F5F5F5"
+      ],
+      "price": 32,
       "stock": 68,
-      "sizes": ["S", "M", "L"],
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/08_cwp1m3.png"
     },
     {
       "id": 9,
       "title": "Full Sleeve Cover Shirt",
       "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear.",
-      "colors": ["#FFFFFF", "#F8B195", "#F67280", "#E6E6FA", "#B0E0E6"],
-      "price": 40.0,
+      "colors": [
+        "#FFFFFF",
+        "#F8B195",
+        "#F67280",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 40,
       "stock": 100,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/09_vmtgjm.png"
     },
     {
       "id": 10,
       "title": "Double Yellow Shirt",
       "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long.",
-      "colors": ["#FFFFFF", "#F0E68C", "#FFDAB9", "#E6E6FA", "#B0E0E6"],
-      "price": 36.0,
-      "sizes": ["S", "M", "L", "XL"],
+      "colors": [
+        "#FFFFFF",
+        "#F0E68C",
+        "#FFDAB9",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 36,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "stock": 100,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683147445/ecommerce/10_fqbcxj.png"
     },
@@ -113,21 +217,123 @@
       "id": 11,
       "title": "Volunteer Half Blue",
       "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered.",
-      "colors": ["#F0ECEC", "#D5D5D5", "#F5B9D5", "#E6E6FA", "#B0E0E6"],
-      "price": 35.0,
+      "colors": [
+        "#F0ECEC",
+        "#D5D5D5",
+        "#F5B9D5",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 35,
       "stock": 100,
-      "sizes": ["S", "L", "XL"],
+      "sizes": [
+        "S",
+        "L",
+        "XL"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683147445/ecommerce/11_yiggri.png"
     },
     {
       "id": 12,
       "title": "Long Belly Grey Pant",
       "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual.",
-      "colors": ["#A8A8A8", "#303030", "#D3D3D3", "#F5F5F5"],
-      "price": 32.0,
+      "colors": [
+        "#A8A8A8",
+        "#303030",
+        "#D3D3D3",
+        "#F5F5F5"
+      ],
+      "price": 32,
       "stock": 100,
-      "sizes": ["S", "M", "L", "XL"],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145848/ecommerce/11_s6mrja.png"
+    },
+    {
+      "id": 13,
+      "title": "Full Sleeve Cover Shirt",
+      "description": "This shirt is perfect for cooler weather and provides full coverage for your arms. Made from high-quality materials, it's both stylish and comfortable to wear.",
+      "colors": [
+        "#FFFFFF",
+        "#F8B195",
+        "#F67280",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 40,
+      "stock": 100,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1684198430/ecommerce/16_cgtj5d.png"
+    },
+    {
+      "id": 14,
+      "title": "Double Yellow Shirt",
+      "description": "Add some color to your wardrobe with this Double Yellow Shirt! Made from soft and breathable fabric, it's perfect for warm weather and will keep you looking stylish all day long.",
+      "colors": [
+        "#FFFFFF",
+        "#F0E68C",
+        "#FFDAB9",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 36,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "stock": 100,
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1684198430/ecommerce/17_fzxtjd.png"
+    },
+    {
+      "id": 15,
+      "title": "Volunteer Half Blue",
+      "description": "The Volunteer Half Blue is a versatile and stylish shirt that's perfect for a variety of occasions. Whether you're dressing up for a night out or keeping it casual, this shirt has got you covered.",
+      "colors": [
+        "#F0ECEC",
+        "#D5D5D5",
+        "#F5B9D5",
+        "#E6E6FA",
+        "#B0E0E6"
+      ],
+      "price": 35,
+      "stock": 100,
+      "sizes": [
+        "S",
+        "L",
+        "XL"
+      ],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1684198430/ecommerce/19_ps05b2.png"
+    },
+    {
+      "id": 16,
+      "title": "Long Belly Grey Pant",
+      "description": "These Long Belly Grey Pants are the perfect addition to your wardrobe. Featuring a sleek and modern design, they're perfect for dressing up or keeping it casual.",
+      "colors": [
+        "#A8A8A8",
+        "#303030",
+        "#D3D3D3",
+        "#F5F5F5"
+      ],
+      "price": 32,
+      "stock": 100,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1684198430/ecommerce/18_qnuxy2.png"
     }
   ]
 }

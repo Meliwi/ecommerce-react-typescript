@@ -10,4 +10,13 @@ const getUser = async (id: number): Promise<User> => {
     }
 }
 
-export { getUser }
+const updateUser = async (id: number, user: User): Promise<User> => {
+    try {
+        const response = await axios.put(`http://localhost:3000/user/${id}`, user);
+        return response.data;
+    } catch (error:any) {
+        throw new Error("Error getting products: " + error.message);
+    }
+}
+
+export { getUser,  updateUser }

@@ -1,7 +1,7 @@
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { useEffect } from "react";
-import { getUser } from "../../utilities/userAxios";
+import { getUser, updateUser } from "../../utilities/userAxios";
 import { useDispatch } from "react-redux";
 import { setEnablePayment } from "../../reducers/paymentSlice";
 
@@ -10,27 +10,28 @@ function Checkout(): JSX.Element {
 
     const formik = useFormik({
       initialValues: {
-        fullname: "",
+        id: 0,
+        name: "",
         email: "",
         confirmationEmail: "",
-        phoneNumber: "",
+        phone: "",
         address: "",
         city: "",
       },
       validationSchema: yup.object().shape({
-        fullname: yup.string().required("Fullname is required"),
+        name: yup.string().required("Fullname is required"),
         email: yup.string().required("Email is required"),
         confirmationEmail: yup
           .string()
           .required("Confirmation email is required"),
-        phoneNumber: yup.string().required("Phone number is required"),
+        phone: yup.string().required("Phone number is required"),
         address: yup.string().required("Address is required"),
         city: yup.string().required("City is required"),
       }),
       onSubmit: () => {
         if(formik.isValid) {
-            console.log("valid")
           dispatch(setEnablePayment(true))
+          updateUser(formik.values.id, formik.values);
         }
       },
       enableReinitialize: true,
@@ -38,11 +39,12 @@ function Checkout(): JSX.Element {
 
     useEffect(() => {
         getUser(1).then((res) => {
-            formik.setFieldValue("fullname", res.name);
+            formik.setFieldValue("id", res.id);
+            formik.setFieldValue("name", res.name);
             formik.setFieldValue("email", res.email);
             formik.setFieldValue("confirmationEmail", res.email);
             formik.setFieldValue("address", res.address);
-            formik.setFieldValue("phoneNumber", res.phone);
+            formik.setFieldValue("phone", res.phone);
             formik.setFieldValue("city", res.city);
         });
     }, [])
@@ -57,10 +59,11 @@ function Checkout(): JSX.Element {
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
+                id="name"
                 type="text"
                 placeholder="Enter your full name"
-                value={formik.values.fullname}
+                value={formik.values.name ?? ""}
+                onChange={formik.handleChange}
               />
             </div>
             <div className="flex gap-4">
@@ -74,7 +77,7 @@ function Checkout(): JSX.Element {
                   name="email"
                   type="email"
                   placeholder="Enter your email address"
-                  value={formik.values.email}
+                  value={formik.values.email ?? ""}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -88,7 +91,7 @@ function Checkout(): JSX.Element {
                   id="email"
                   type="email"
                   placeholder="Enter your confirmation email"
-                  value={formik.values.confirmationEmail}
+                  value={formik.values.confirmationEmail ?? ""}
                   onChange={formik.handleChange}
                 />
               </div>
@@ -99,12 +102,12 @@ function Checkout(): JSX.Element {
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                name="phoneNumber"
-                id="phoneNumber"
+                name="phone"
+                id="phone"
                 type="number"
                 pattern="[0-9]*"
                 placeholder="Enter your phone number"
-                value={formik.values.phoneNumber}
+                value={formik.values.phone ?? ""}
                 onChange={formik.handleChange}
               />
             </div>
@@ -118,7 +121,7 @@ function Checkout(): JSX.Element {
                 id="address"
                 type="text"
                 placeholder="Enter your address"
-                value={formik.values.address}
+                value={formik.values.address ?? ""}
                 onChange={formik.handleChange}
               />
             </div>
@@ -130,7 +133,7 @@ function Checkout(): JSX.Element {
                 id="city"
                 type="text"
                 placeholder="City"
-                value={formik.values.city}
+                value={formik.values.city ?? ""}
                 onChange={formik.handleChange}
               />
             </div>

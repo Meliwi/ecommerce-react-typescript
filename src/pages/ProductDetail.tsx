@@ -54,7 +54,7 @@ function ProductDetail() : JSX.Element {
 
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 max-w-screen-xl mx-auto">
       <div>
         <img src={product?.image} alt="" />
       </div>
@@ -107,7 +107,7 @@ function ProductDetail() : JSX.Element {
           </div>
           <div className="border-[0.1rem] border-gray-100"></div>
           <div className="flex items-center gap-2">
-            <CounterButton 
+            <CounterButton
               product={formik.values.product}
               valueQuantity={valueQuantity}
             />
