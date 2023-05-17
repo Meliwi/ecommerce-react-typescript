@@ -5,8 +5,6 @@ import CardCart from '../components/Card/CardCart';
 function ShippingHistory(){
     const shoppingHistory = useRecoilValue(shoppingHistoryState);
 
-    console.log("shopping history", shoppingHistory);
-
     return (
       <div className="grid grid-cols-10 gap-5 max-w-screen-xl mx-auto md:px-4">
         <div className="col-span-6">

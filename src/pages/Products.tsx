@@ -7,12 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectProducts, setProducts } from "../reducers/productSlice";
 
 function Products() : JSX.Element {
-  const dispatch = useDispatch();
   const products: Product[] = useSelector(selectProducts);
   const navigate = useNavigate();
   
-
-
   const clickHandler = (id: number) => {
     navigate(`/products/${id}`)
   }

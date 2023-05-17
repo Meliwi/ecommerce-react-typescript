@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import { RecoilRoot } from "recoil";
 import RootLayout from "./pages/Root"
 import Home from "./pages/Home"
