@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { selectEnablePayment } from "../../reducers/paymentSlice";
 import { useCart } from "../../hooks/useCart";
 import { selectProducts, updateProductStock } from "../../reducers/productSlice";
 import { useRecoilState } from "recoil";
@@ -8,25 +7,35 @@ import { shoppingHistoryState } from "../../atoms";
 import { updateProductStockJSON } from "../../utilities/productsAxios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { usePayment } from "../../hooks/usePayment";
 interface InvoiceProps {
-  total: number;
   payment: boolean;
 }
 
-function Invoice({total, payment}: InvoiceProps) : JSX.Element {
+function Invoice({payment}: InvoiceProps) : JSX.Element {
     const navigate = useNavigate();
-    const enableButtonPayment = useSelector(selectEnablePayment);
-    const { cart } = useCart();
+    const {enablePayment, amount} = usePayment();
+    const { cart, clearCart } = useCart();
     const dispatch = useDispatch();
     const updatedProducts = useSelector(selectProducts)
     const [enableUpdateAPI, setEnableUpdateAPI] = useState(false)
     const [shoppingHistory, setShoppingHistory]= useRecoilState(shoppingHistoryState);
     
     const handleClick = async () => {
-      if (enableButtonPayment && location.pathname === "/payment") {
+      if (enablePayment && location.pathname === "/payment") {
         dispatch(updateProductStock(cart));
-        setShoppingHistory([...shoppingHistory, ...cart]);
+        // Generate unique ID for shopping history
+        const shoppingID = `shopping${Object.keys(shoppingHistory).length + 1}`;
+        // Create shopping object
+        const shoppingObject = {
+          cart,
+        };
+        setShoppingHistory((prevShippingHistory) => ({
+          ...prevShippingHistory,
+          [shoppingID]: shoppingObject,
+        }));
         setEnableUpdateAPI(true);
+        clearCart();
       }
     };
 
@@ -45,11 +54,11 @@ function Invoice({total, payment}: InvoiceProps) : JSX.Element {
     },[enableUpdateAPI])
 
     return (
-      <div className="col-span-3">
+      <div className="col-span-4">
         <div className="w-full border border-gray-100 p-7 rounded-lg gap-4 flex flex-col">
           <div className="flex justify-between">
             <p className="text-[#555555]">Subtotal:</p>
-            <p className="text-[#555555]">${total}.00</p>
+            <p className="text-[#555555]">${amount}.00</p>
           </div>
           <div className="flex justify-between">
             <p className="text-[#555555]">Discount:</p>
@@ -58,13 +67,13 @@ function Invoice({total, payment}: InvoiceProps) : JSX.Element {
           <div className="border-[0.1rem] border-dashed border-gray-100 mb-5"></div>
           <div className="flex justify-between">
             <p className="text-[#555555]">Total:</p>
-            <p className="text-[#555555]">${total}.00</p>
+            <p className="text-[#555555]">${amount}.00</p>
           </div>
           <div className="flex w-full">
             <NavLink
               to={
                 payment
-                  ? enableButtonPayment
+                  ? enablePayment
                     ? "/payment"
                     : "/pay"
                   : "/checkout"
@@ -73,12 +82,12 @@ function Invoice({total, payment}: InvoiceProps) : JSX.Element {
             >
               {payment ? (
                 <button
-                  disabled={!enableButtonPayment}
+                  disabled={!enablePayment}
                   onClick={handleClick}
                   className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-full"
-                  style={{ opacity: enableButtonPayment ? "1" : "0.5" }}
+                  style={{ opacity: enablePayment ? "1" : "0.5" }}
                 >
-                  {enableButtonPayment ? `Pay $${total}` : "Continue Payment"}
+                  {enablePayment ? `Pay $${amount}` : "Continue Payment"}
                 </button>
               ) : (
                 <button className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-full">

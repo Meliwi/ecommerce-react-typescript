@@ -1,0 +1,45 @@
+import { ReactNode, createContext, useState } from "react";
+
+interface PaymentContextType {
+  enablePayment: Boolean;
+  handleEnablePayment: () => void;
+  amount: number;
+  handleAmount: (value: number) => void;
+}
+
+interface PaymentProviderProps {
+  children: ReactNode;
+}
+
+//Creating context
+export const PaymentContext = createContext<PaymentContextType>({
+    enablePayment: false,
+    handleEnablePayment: () => {},
+    amount: 0,
+    handleAmount: () => {},
+});
+
+//Creating provider
+export function PaymentProvider({ children }: PaymentProviderProps) {
+    const [enablePayment, setEnablePayment] = useState<Boolean>(false);
+    const [amount, setAmount] = useState<number>(0);
+    const handleEnablePayment = () => {
+        setEnablePayment(true);
+    }
+
+    const handleAmount = (value: number) => {
+        setAmount(value);
+    }
+  return (
+    <PaymentContext.Provider
+      value={{
+        enablePayment,
+        handleEnablePayment,
+        handleAmount,
+        amount,
+      }}
+    >
+      {children}
+    </PaymentContext.Provider>
+  );
+}

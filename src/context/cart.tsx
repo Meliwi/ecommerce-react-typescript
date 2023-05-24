@@ -1,16 +1,13 @@
 import { ReactNode, createContext, useState } from "react";
-import { ProductQuantity } from '../interfaces/ProductQuantity';
 import { CartProduct } from '../interfaces/CartProduct';
 
 interface CartContextType {
   cart: CartProduct[];
-  productQuantities: ProductQuantity[];
-  findProductQuantity: (productId: number | undefined) => number;
   addToCart: (product: CartProduct | null) => void;
+  handleQuantityInCart: (product: CartProduct, cart: CartProduct[], increment: Boolean) => number;
   clearCart: () => void;
+  productQuantity: number;
   removeFromCart: (product: CartProduct) => void;
-  handleQuantity: (product: CartProduct, increment: Boolean) => void;
-  handleQuantityInCart: (product: CartProduct, increment: Boolean) => void;
 }
 
 interface CartProviderProps {
@@ -20,117 +17,56 @@ interface CartProviderProps {
 //Creating context
 export const CartContext = createContext<CartContextType>({
   cart: [],
-  productQuantities: [],
-  findProductQuantity: () => 1,
   addToCart: () => {},
+  handleQuantityInCart: () => 0,
   clearCart: () => {},
+  productQuantity: 0,
   removeFromCart: () => {},
-  handleQuantity: () => {},
-  handleQuantityInCart: () => {},
 });
 
 //Creating provider
 export function CartProvider({children}: CartProviderProps) {
     const [cart, setCart] = useState<CartProduct[]>([]);
-    const [productQuantities, setProductQuantities] = useState<ProductQuantity[]>([]);
-
-    /**
-     * It checks if product is in cart and update cart state
-     * @param product element to increment or decrement quantity
-     * @param increment boolean to increment or decrement
-     */
-      const handleQuantityInCart = (
-        product: CartProduct,
-        increment: Boolean
-      ) => {
-        const productId = product.id;
-        if (product?.productInCart) {
-          const productIndex = cart.findIndex((item) => item.id === productId);
-          const maxQuantity = product.stock;
-          const currentQuantity = cart[productIndex].quantity;
-          const newQuantity = increment
-            ? Math.min(maxQuantity, currentQuantity + 1)
-            : Math.max(1, currentQuantity - 1);
-          const updatedCart = structuredClone(cart);
-          updatedCart[productIndex].quantity = newQuantity;
-          setCart(updatedCart);
-        }
-      };
-
-    /**
-     * It handles the quantity of a product in the cart
-     * @param product element to increment or decrement quantity
-     * @param increment boolean to increment or decrement
-     */
-    const handleQuantity = (product: CartProduct, increment: Boolean) => {
-      const productId = product.id;
-      const maxQuantity = product.stock;
-      const productIndex = productQuantities.findIndex((item) => item.productId === productId);
-      if(product?.productInCart) {
-        handleQuantityInCart(product, increment);
-      } else {
-        if (productIndex == -1) {
-            setProductQuantities((prevState) => [
-              ...prevState,
-              {
-                productId: productId,
-                quantity: increment
-                  ? Math.min(maxQuantity, product.quantity + 1)
-                  : Math.max(1, product.quantity - 1),
-              },
-            ]);
-          }
-        else {
-          const updatedProductQuantities = structuredClone(productQuantities);
-          const currentQuantity = updatedProductQuantities[productIndex].quantity;
-          const newQuantity = increment
-            ? Math.min(maxQuantity, currentQuantity + 1)
-            : Math.max(1, currentQuantity - 1);
-          updatedProductQuantities[productIndex].quantity = newQuantity;
-          setProductQuantities(updatedProductQuantities);
-        }
-      }
-    }
-
-    /**
-     * It finds the quantity of a product
-     * @param productId product id to find quantity
-     * @returns quantity of the product
-     */
-    const findProductQuantity = (productId: number | undefined) => {
-      const product = productQuantities.find(
-        (item) => item.productId === productId
-      );
-      return product ? product.quantity : 1;
-    };
-
+    const [productQuantity, setProductQuantity] = useState<number>(0);
     /**
      * It adds a product to cart
      * @param product element to add to cart
      */
     const addToCart = (product: CartProduct | null) => {
       // check if product is already in cart
-      const productIndex = cart?.findIndex((item) => item.id === product?.id);
-      const quantityProduct = findProductQuantity(product?.id);
+      const productCartIndex = cart?.findIndex((item) => item.id === product?.id);
       const newCart = structuredClone(cart);
-
-      // product is already in cart
-      if (productIndex !== -1) {
-        newCart[productIndex] = {
-          ...newCart[productIndex],
+       if (productCartIndex !== -1) {
+        newCart[productCartIndex] = {
+          ...newCart[productCartIndex],
           productInCart: true,
         };
         setCart(newCart);
       }
       // product is not in cart
-      else {
-        const updatedProduct = {
-          ...product!,
-          quantity: quantityProduct,
-          productInCart: true,
-        };
-        setCart((prevState) => [...prevState, updatedProduct]);
+      const updatedProduct = {
+        ...product!,
+        productInCart: true,
+      };
+      setCart((prevState) => [...prevState, updatedProduct]);
+    };
+    
+    /**
+     * Handle quantity of a product in cart
+     * @param product 
+     * @param cart 
+     * @returns number
+     */
+    const handleQuantityInCart = (product: CartProduct, cart: CartProduct[], increment: Boolean) => {
+      const productIndex = cart.findIndex((p) => p.id === product.id);
+
+      if (productIndex !== -1) {
+        cart[productIndex].quantity += increment ? 1 : -1;
+        setProductQuantity(cart[productIndex].quantity);
+        return cart[productIndex].quantity;
       }
+
+      return 0; // or handle the case when the product is not found in the cart
     };
     /**
      * It clears the cart
@@ -147,7 +83,7 @@ export function CartProvider({children}: CartProviderProps) {
        )
     } 
     return (
-        <CartContext.Provider value={{cart, productQuantities, findProductQuantity, addToCart, handleQuantityInCart, clearCart, removeFromCart, handleQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, handleQuantityInCart, productQuantity, clearCart, removeFromCart}}>
             {children}
         </CartContext.Provider>
     )

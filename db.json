@@ -23,7 +23,7 @@
         "#B0E0E6"
       ],
       "price": 40,
-      "stock": 81,
+      "stock": 65,
       "sizes": [
         "S",
         "M",
@@ -44,7 +44,7 @@
         "#B0E0E6"
       ],
       "price": 35,
-      "stock": 31,
+      "stock": 19,
       "sizes": [
         "S",
         "M",
@@ -88,7 +88,7 @@
         "M",
         "L"
       ],
-      "stock": 48,
+      "stock": 32,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/04_ejadlm.png"
     },
     {
@@ -265,7 +265,7 @@
         "#B0E0E6"
       ],
       "price": 40,
-      "stock": 100,
+      "stock": 92,
       "sizes": [
         "S",
         "M",
@@ -292,7 +292,7 @@
         "L",
         "XL"
       ],
-      "stock": 100,
+      "stock": 84,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1684198430/ecommerce/17_fzxtjd.png"
     },
     {

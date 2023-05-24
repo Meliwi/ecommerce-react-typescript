@@ -2,12 +2,10 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { useEffect } from "react";
 import { getUser, updateUser } from "../../utilities/userAxios";
-import { useDispatch } from "react-redux";
-import { setEnablePayment } from "../../reducers/paymentSlice";
+import { usePayment } from "../../hooks/usePayment";
 
 function Checkout(): JSX.Element {
-    const dispatch = useDispatch();
-
+    const { handleEnablePayment } = usePayment();
     const formik = useFormik({
       initialValues: {
         id: 0,
@@ -30,7 +28,7 @@ function Checkout(): JSX.Element {
       }),
       onSubmit: () => {
         if(formik.isValid) {
-          dispatch(setEnablePayment(true))
+          handleEnablePayment();
           updateUser(formik.values.id, formik.values);
         }
       },

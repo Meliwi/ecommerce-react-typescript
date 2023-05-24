@@ -8,7 +8,7 @@ function PaymentPage() {
           <h6 className="mb-5 font-bold text-lg">Payment Method</h6>
           <Payment />
         </div>
-        <Invoice total={200} payment={true} />
+        <Invoice payment={true} />
       </div>
     );
 }   

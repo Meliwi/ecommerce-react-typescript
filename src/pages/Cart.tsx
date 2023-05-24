@@ -4,18 +4,18 @@ import { useEffect, useState } from 'react';
 import Invoice from '../components/Invoice/Invoice';
 import CardCart from '../components/Card/CardCart';
 import { BsBagX } from 'react-icons/bs';
+import { usePayment } from '../hooks/usePayment';
 
 function CartPage(){
     const {cart, clearCart} = useCart();
-    const [total, setTotal] = useState(0);
-
+    const { handleAmount } = usePayment();
     useEffect(() => {
       let total = 0;
       cart.forEach((product) => {
         total += product.price * product.quantity;
       });
-      setTotal(total);
-    }, [cart])
+      handleAmount(total);
+    }, [cart, cart.map((product) => product.quantity)]);
 
     return (
       <div className="max-w-screen-xl mx-auto md:px-4">
@@ -49,9 +49,9 @@ function CartPage(){
                 <h3 className="col-span-2 text-[#555555]">Price</h3>
               </div>
               <div className="border-[0.1rem] border-gray-100 mb-5"></div>
-              <CardCart cartList={cart} isHistory={false} />
+              <CardCart cartList={cart} isOrder={false}/>
             </div>
-            <Invoice total={total} payment={false} />
+            <Invoice payment={false} />
           </div>
         )}
       </div>
