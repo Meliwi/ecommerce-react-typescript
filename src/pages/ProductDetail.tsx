@@ -12,10 +12,7 @@ import { useCart } from "../hooks/useCart";
 function ProductDetail() : JSX.Element {
   const params = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
-  const { addToCart, findProductQuantity } = useCart()
-  const [valueQuantity, setValueQuantity] = useState<number | 1>(
-      findProductQuantity(product?.id)
-  );
+  const { addToCart } = useCart()
   const formik = useFormik({
     initialValues: {
       product: {
@@ -23,7 +20,7 @@ function ProductDetail() : JSX.Element {
         title: product?.title ?? "",
         price: product?.price ?? 0,
         image: product?.image ?? "",
-        quantity: 1,
+        quantity: product?.quantity ?? 1,
         stock: product?.stock ?? 0,
         color: product?.colors[0] ?? "",
         size: product?.sizes[0] ?? "",
@@ -47,11 +44,6 @@ function ProductDetail() : JSX.Element {
     }
     getProduct();
   }, [params]);
-
-  useEffect(() => {
-      setValueQuantity(findProductQuantity(product?.id));
-  }, [product?.id, findProductQuantity]);
-
 
   return (
     <div className="flex gap-5 max-w-screen-xl mx-auto">
@@ -109,7 +101,8 @@ function ProductDetail() : JSX.Element {
           <div className="flex items-center gap-2">
             <CounterButton
               product={formik.values.product}
-              valueQuantity={valueQuantity}
+              valueQuantity={formik.values.product.quantity}
+              formik={formik}
             />
             <button
               type="button"

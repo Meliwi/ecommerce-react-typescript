@@ -11,7 +11,8 @@ import store from "../store";
 import CheckoutPage from "./pages/Checkout";
 import PaymentPage from "./pages/Payment";
 import TransactionPage from "./pages/Transaction";
-import ShippingHistory from "./pages/ShippingHistory";
+import { PaymentProvider } from './context/payment';
+import ShoppingHistory from "./pages/ShippingHistory";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       { path: "/checkout", element: <CheckoutPage />},
       { path: "/payment", element: <PaymentPage/>},
       { path: "/transaction", element: <TransactionPage/>},
-      { path: "/history", element: <ShippingHistory/>}
+      { path: "/history", element: <ShoppingHistory/>}
     ]
   }
 ])
@@ -34,11 +35,13 @@ function App() : JSX.Element {
   return (
     <Provider store={store}>
       <CartProvider>
-        <RecoilRoot>
-          <div>
-            <RouterProvider router={router} />
-          </div>
-        </RecoilRoot>
+        <PaymentProvider>
+          <RecoilRoot>
+            <div>
+              <RouterProvider router={router} />
+            </div>
+          </RecoilRoot>
+        </PaymentProvider>
       </CartProvider>
     </Provider>
   );

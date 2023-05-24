@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 export function Cart(): JSX.Element {
   const { cart } = useCart();
   const [productsInCart, setProductsInCart] = useState<number>(0);
-
+  
   useEffect(() => {
-    const quantitySum = cart.reduce((total, product) => total + product.quantity, 0);
+    const quantitySum = cart.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
     setProductsInCart(quantitySum);
-  }, [cart]);
+  }, [cart, cart.map((product) => product.quantity)]);
 
   return (
     <button className="flex">

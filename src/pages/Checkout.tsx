@@ -1,5 +1,6 @@
 import Checkout from "../components/Checkout/Checkout";
 import Invoice from '../components/Invoice/Invoice';
+import Order from "../components/Order/Order";
 
 function CheckoutPage(): JSX.Element {
     return (
@@ -8,7 +9,10 @@ function CheckoutPage(): JSX.Element {
           <h6 className="mb-5 font-bold text-lg">Shipping address</h6>
           <Checkout />
         </div>
-        <Invoice total={200} payment={true} />
+        <div className="col-span-4">
+          <Order />
+          <Invoice payment={true} />
+        </div>
       </div>
     );
 }
