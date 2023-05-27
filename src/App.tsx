@@ -12,7 +12,7 @@ import CheckoutPage from "./pages/Checkout";
 import PaymentPage from "./pages/Payment";
 import TransactionPage from "./pages/Transaction";
 import { PaymentProvider } from './context/payment';
-import ShoppingHistory from "./pages/ShippingHistory";
+import ShoppingHistory from "./pages/ShoppingHistory";
 
 const router = createBrowserRouter([
   {

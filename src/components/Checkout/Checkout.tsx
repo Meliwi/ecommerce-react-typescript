@@ -64,8 +64,8 @@ function Checkout(): JSX.Element {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="flex gap-4">
-              <div className="w-2/4">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="md:w-2/4">
                 <label className="block text-gray-700 text-sm mb-2">
                   Email address*
                 </label>
@@ -79,7 +79,7 @@ function Checkout(): JSX.Element {
                   onChange={formik.handleChange}
                 />
               </div>
-              <div className="w-2/4">
+              <div className="md:w-2/4">
                 <label className="block text-gray-700 text-sm mb-2">
                   Confirmation email*
                 </label>

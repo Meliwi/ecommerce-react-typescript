@@ -18,22 +18,23 @@ function ShoppingHistory(){
     }, [shoppingHistory]);
 
     return (
-      <div className="grid grid-cols-10 gap-5 max-w-screen-xl mx-auto md:px-4">
-        <div className="col-span-6">
-          <h6 className="text-2xl font['Inter'] font-extrabold mb-10">
+      <div className="grid grid-cols-10 gap-5 max-w-screen-xl mx-auto px-4 md:px-8 lg:px-12">
+        <div className="col-span-10 md:col-span-6">
+          <h6 className="text-2xl font-inter font-extrabold mb-10">
             Shopping History
           </h6>
           {cartList.map((cart, index) => (
-            <>
-              <p className="pb-4 text-gray-500">{`Shopping ${index + 1}`}</p>
-              <div className="border border-gray-100 p-7 rounded-lg p-2 mb-3">
-                <CardCart key={index} cartList={cart} isOrder={true} />
+            <div key={index} className="mb-6">
+              <p className="pb-2 text-gray-500">{`Shopping ${index + 1}`}</p>
+              <div className="border border-gray-100 rounded-lg p-4 md:p-6">
+                <CardCart cartList={cart} isOrder={true} />
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
     );
+
 }
 
 export default ShoppingHistory;

@@ -18,11 +18,9 @@ function CartPage(){
     }, [cart, cart.map((product) => product.quantity)]);
 
     return (
-      <div className="max-w-screen-xl mx-auto md:px-4">
-        <div className="flex gap-[30%] mb-10">
-          <h4 className="text-2xl	font['Inter'] font-extrabold">
-            Shopping Cart
-          </h4>
+      <div className="max-w-screen-xl mx-auto md:px-4 p-8">
+        <div className="flex flex-row justify-between md:justify-start md:gap-[30%] mb-10">
+          <h4 className="text-2xl font-extrabold">Shopping Cart</h4>
           {cart.length === 0 ? null : (
             <button
               onClick={() => clearCart()}
@@ -34,22 +32,24 @@ function CartPage(){
           )}
         </div>
         {cart.length === 0 ? (
-          <div className="flex justify-center items-center flex-col gap-4">
+          <div className="flex flex-col items-center justify-center gap-4">
             <h6 className="text-2xl font-semibold">Your cart is empty</h6>
             <p>0 items in the basket</p>
             <BsBagX className="text-9xl text-[#555555]" />
             <p>Nothing to show here right now</p>
           </div>
         ) : (
-          <div className="grid grid-cols-10 gap-5">
-            <div className="col-span-6">
-              <div className="grid grid-cols-7 mb-5 gap-6">
-                <h3 className="col-span-3 text-[#555555]">Product</h3>
-                <h3 className="col-span-2 text-[#555555]">Quantity</h3>
-                <h3 className="col-span-2 text-[#555555]">Price</h3>
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-5">
+            <div className="col-span-1 text-center md:col-span-6 md:text-start">
+              <div className="grid grid-cols-10 sm:grid-cols-7 mb-5 gap-8 md:gap-6">
+                <h3 className="col-span-4 sm:col-span-2 md:col-span-3 text-[#555555]">Product</h3>
+                <h3 className="col-span-2 sm:col-span-2 text-[#555555]">
+                  Quantity
+                </h3>
+                <h3 className="col-span-4 sm:col-span-2 text-[#555555]">Price</h3>
               </div>
               <div className="border-[0.1rem] border-gray-100 mb-5"></div>
-              <CardCart cartList={cart} isOrder={false}/>
+              <CardCart cartList={cart} isOrder={false} />
             </div>
             <Invoice payment={false} />
           </div>
