@@ -29,22 +29,27 @@ function FlashSales() {
         navigate(`/products/${id}`);
     };
     return (
-        <div>
-            <div className="max-w-screen-xl mx-auto md:px-4 md:mt-12">
-                <h4 className="text-2xl	font['Inter'] font-extrabold mb-10">Flash Sales</h4>
-                <div className="grid grid-cols-4 gap-3">
-                {flashSales?.map((product) => (
-                    <div key={product.id}>
-                    <Card
-                        product={product}
-                        clickHandler={() => clickHandler(product.id)}
-                        flashSale={true}
-                    />
-                    </div>
-                ))}
-                </div>
-            </div>
+      <div>
+        <div className="max-w-screen-xl mx-auto md:px-4 md:mt-12 p-6">
+          <h4 className="text-2xl	font['Inter'] font-extrabold mb-10">
+            Flash Sales
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {flashSales?.map((product) => (
+              <div
+                key={product.id}
+                className="flex items-center justify-center"
+              >
+                <Card
+                  product={product}
+                  clickHandler={() => clickHandler(product.id)}
+                  flashSale={true}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
     );
 }
 

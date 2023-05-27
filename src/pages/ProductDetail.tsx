@@ -46,7 +46,7 @@ function ProductDetail() : JSX.Element {
   }, [params]);
 
   return (
-    <div className="flex gap-5 max-w-screen-xl mx-auto">
+    <div className="flex flex-col md:flex-row gap-5 max-w-screen-xl mx-auto p-8 justify-center items-center md:justify-start md:items-start">
       <div>
         <img src={product?.image} alt="" />
       </div>
@@ -60,31 +60,11 @@ function ProductDetail() : JSX.Element {
           </p>
         </div>
         <form className="grid gap-4" onSubmit={formik.handleSubmit}>
-          <div className="flex gap-4">
-            <p>Color:</p>
-            <div className="flex flex-row items-center">
-              {product?.colors.map((color) => (
-                <button
-                  key={color}
-                  className={`w-8 h-8 rounded-full border border-gray-200 mr-2 ${
-                    formik.values.product.color === color
-                      ? "border-gray-500"
-                      : ""
-                  }`}
-                  style={{ backgroundColor: color, cursor: "pointer" }}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    formik.setFieldValue("product.color", color);
-                  }}
-                ></button>
-              ))}
-            </div>
-          </div>
           <div className="flex gap-4 items-center">
             <label className="block mb-2 text-sm font-medium">Size</label>
             <select
               id="sizes"
-              className="border border-gray-300 text-sm rounded-lg block w-full p-2.5 w-1/4"
+              className="border border-gray-300 text-sm rounded-lg block w-full p-2.5 md:w-1/4"
               value={formik.values.product.size}
               onChange={(event) =>
                 formik.setFieldValue("product.size", event.target.value)
@@ -110,7 +90,7 @@ function ProductDetail() : JSX.Element {
               onClick={() => {
                 addToCart(formik.values.product);
               }}
-              className="flex items-center justify-center bg-black text-white rounded-md px-3 ml-2 h-10 gap-2 w-60"
+              className="flex items-center justify-center bg-black text-white rounded-md px-3 ml-2 h-10 gap-2 w-full md:w-60"
             >
               <CiShoppingCart className="inline-block" />
               Add to Cart

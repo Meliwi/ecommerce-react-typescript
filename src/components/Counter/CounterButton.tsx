@@ -2,6 +2,7 @@ import { FormikContextType } from "formik";
 import { useCart } from "../../hooks/useCart";
 import { CartProduct } from "../../interfaces/CartProduct";
 import { useState } from "react";
+import "./CounterButton.css"
 
 interface CounterButtonProps {
   product: CartProduct | null;
@@ -34,35 +35,40 @@ function CounterButton ({product, valueQuantity, formik} : CounterButtonProps) :
       formik?.setFieldValue("product.quantity", newQuantity);
     }
   }
-    return (
-      <div className="custom-number-input flex">
-        <div className="flex flex-row h-10 w-32 rounded-lg relative bg-transparent">
-          <button
-            type="button"
-            data-action="decrement"
-            onClick={() => handleQuantity(false)}
-            className="border text-gray-600 h-full w-20 rounded-l cursor-pointer outline-none"
-          >
-            <span className="m-auto text-2xl font-thin">−</span>
-          </button>
-          <input
-            type="number"
-            className="outline-none border focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-            name="custom-input-number"
-            readOnly
-            value={product?.productInCart ? productQuantity : formik?.values.product.quantity}
-          ></input>
-          <button
-            type="button"
-            data-action="increment"
-            onClick={() => handleQuantity(true)}
-            className="border text-gray-600 h-full w-20 rounded-r cursor-pointer"
-          >
-            <span className="m-auto text-2xl font-thin">+</span>
-          </button>
-        </div>
-      </div>
-    );
+return (
+  <div className="custom-number-input flex">
+    <div className="flex flex-row h-10 w-[5rem] sm:w-32 rounded-lg relative bg-transparent">
+      <button
+        type="button"
+        data-action="decrement"
+        onClick={() => handleQuantity(false)}
+        className="border text-gray-600 h-full w-20 rounded-l cursor-pointer outline-none"
+      >
+        <span className="m-auto text-2xl font-thin">−</span>
+      </button>
+      <input
+        type="number"
+        className="outline-none border focus:outline-none text-center w-full font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center justify-center text-gray-700  outline-none"
+        name="custom-input-number"
+        readOnly
+        value={
+          product?.productInCart
+            ? productQuantity
+            : formik?.values.product.quantity
+        }
+      ></input>
+      <button
+        type="button"
+        data-action="increment"
+        onClick={() => handleQuantity(true)}
+        className="border text-gray-600 h-full w-20 rounded-r cursor-pointer"
+      >
+        <span className="m-auto text-2xl font-thin">+</span>
+      </button>
+    </div>
+  </div>
+);
+
 }
 
 export default CounterButton;
