@@ -3,7 +3,9 @@ import { Product } from "../interfaces/Product";
 
 const getProducts = async (): Promise<Product[]> => {
   try {
-    const response = await axios.get("http://localhost:3000/products");
+    const response = await axios.get(
+      "https://restful-api-ecommerce.vercel.app/products/"
+    );
     return response.data;
   } catch (error: any) {
     throw new Error("Error getting products: " + error.message);
@@ -12,7 +14,9 @@ const getProducts = async (): Promise<Product[]> => {
 
 const getProductDetail = async (id: string): Promise<Product> => {
   try {
-    const response = await axios.get(`http://localhost:3000/products/${id}`);
+    const response = await axios.get(
+      `https://restful-api-ecommerce.vercel.app/products/${id}`
+    );
     return response.data;
   } catch (error: any) {
     throw new Error("Error getting product: " + error.message);
@@ -22,7 +26,10 @@ const getProductDetail = async (id: string): Promise<Product> => {
 const updateProductStockJSON = async (products: Product[]) => {
   try {
     const requests = products.map((product) =>
-      axios.put(`http://localhost:3000/products/${product.id}`, product)
+      axios.put(
+        `https://restful-api-ecommerce.vercel.app/products/${product.id}`,
+        product
+      )
     );
     await Promise.all(requests);
   } catch (error: any) {

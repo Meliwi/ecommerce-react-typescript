@@ -43,8 +43,8 @@ function Invoice({payment}: InvoiceProps) : JSX.Element {
     useEffect(() => {
       const handleUpdateStockAPI = async () => {
         try {
-          await updateProductStockJSON(updatedProducts);
           navigate("/transaction");
+          await updateProductStockJSON(updatedProducts);
         } catch (error) {
           throw error;
         }
