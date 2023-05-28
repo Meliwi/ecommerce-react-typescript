@@ -7,7 +7,7 @@ interface CartContextType {
   handleQuantityInCart: (product: CartProduct, cart: CartProduct[], increment: Boolean) => number;
   clearCart: () => void;
   productQuantity: number;
-  removeFromCart: (product: CartProduct) => void;
+  removeFromCart: (index: number) => void;
 }
 
 interface CartProviderProps {
@@ -87,11 +87,14 @@ export function CartProvider({children}: CartProviderProps) {
      * It removes a product from cart
      * @param product to remove from cart
      */
-    const removeFromCart = (product: CartProduct) => {
-      setCart((prevState) => 
-        prevState.filter(item => item.id !== product.id) 
-       )
-    } 
+    const removeFromCart = (index: number) => {
+      setCart((prevState) => {
+        const updatedCart = [...prevState];
+        updatedCart.splice(index, 1);
+        return updatedCart;
+      });
+    };
+
     return (
         <CartContext.Provider value={{cart, addToCart, handleQuantityInCart, productQuantity, clearCart, removeFromCart}}>
             {children}

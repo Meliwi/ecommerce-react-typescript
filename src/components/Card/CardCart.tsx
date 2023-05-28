@@ -73,7 +73,7 @@ function CardCart({cartList, isOrder}: CardCartProps){
                     valueQuantity={product?.quantity}
                   />
                   <button
-                    onClick={() => removeFromCart(product)}
+                    onClick={() => removeFromCart(index)}
                     className="flex items-center gap-2"
                   >
                     <CiTrash />
