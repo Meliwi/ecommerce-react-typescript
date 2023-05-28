@@ -12,6 +12,8 @@ import { useCart } from "../hooks/useCart";
 function ProductDetail() : JSX.Element {
   const params = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
+  const [isContentLoaded, setIsContentLoaded] = useState(false);
+
   const { addToCart } = useCart()
   const formik = useFormik({
     initialValues: {
@@ -43,12 +45,23 @@ function ProductDetail() : JSX.Element {
         setProduct(res);
     }
     getProduct();
+    setTimeout(() => {
+      setIsContentLoaded(true);
+    }, 300);
   }, [params]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-5 max-w-screen-xl mx-auto p-8 justify-center items-center md:justify-start md:items-start">
+    <div
+      className={`transition-opacity duration-500 flex flex-col md:flex-row gap-5 max-w-screen-xl mx-auto p-8 justify-center items-center md:justify-start md:items-start ${
+        isContentLoaded ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <div>
-        <img src={product?.image} alt="" />
+        <img
+          className="transition duration-300 ease-in-out hover:scale-105"
+          src={product?.image}
+          alt=""
+        />
       </div>
       <div className="flex flex-col gap-4 max-w-lg">
         <h3 className="text-[#1A1A1A] text-xl font-bold">{product?.title}</h3>
@@ -90,7 +103,9 @@ function ProductDetail() : JSX.Element {
               onClick={() => {
                 addToCart(formik.values.product);
               }}
-              className="flex items-center justify-center bg-black text-white rounded-md px-3 ml-2 h-10 gap-2 w-full md:w-60"
+              className={`flex items-center justify-center bg-black text-white rounded-md px-3 ml-2 h-10 gap-2 w-full md:w-60 ${
+                formik.values.product.stock === 0 ? "opacity-50" : ""
+              }`}
             >
               <CiShoppingCart className="inline-block" />
               Add to Cart

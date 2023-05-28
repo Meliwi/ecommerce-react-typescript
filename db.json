@@ -23,7 +23,7 @@
         "#B0E0E6"
       ],
       "price": 40,
-      "stock": 60,
+      "stock": 57,
       "sizes": [
         "S",
         "M",
@@ -44,7 +44,7 @@
         "#B0E0E6"
       ],
       "price": 35,
-      "stock": 19,
+      "stock": 0,
       "sizes": [
         "S",
         "M",
@@ -88,7 +88,7 @@
         "M",
         "L"
       ],
-      "stock": 32,
+      "stock": 28,
       "image": "https://res.cloudinary.com/dq57zsx0w/image/upload/v1683145847/ecommerce/04_ejadlm.png"
     },
     {
