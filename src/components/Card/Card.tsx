@@ -27,7 +27,7 @@ function Card({ product, clickHandler, flashSale }: CardProps): JSX.Element {
           </p>
         )}
         <img
-          className="sm:w-[17rem] sm:h-[22rem] md:w-[15rem] md:h-[18rem] w-[22rem] h-[26rem]"
+          className="sm:w-[17rem] sm:h-[22rem] md:w-[15rem] md:h-[18rem] w-[22rem] h-[26rem] transition duration-300 ease-in-out hover:opacity-80"
           src={product.image}
           alt={product.title}
         />

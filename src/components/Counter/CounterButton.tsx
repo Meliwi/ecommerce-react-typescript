@@ -24,7 +24,7 @@ function CounterButton ({product, valueQuantity, formik} : CounterButtonProps) :
     }
     if(increment && !product?.productInCart){
       const newQuantity = Math.min(
-        formik?.values.product.stock,
+        formik?.values.product.stock + 1,
         formik?.values.product.quantity + 1,
       );
       formik?.setFieldValue("product.quantity", newQuantity);

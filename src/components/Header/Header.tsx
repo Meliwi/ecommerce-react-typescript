@@ -33,7 +33,7 @@ function Header(): JSX.Element {
       <nav
         className={`${
           isMenuOpen
-            ? "fixed top-0 left-0 h-full w-full z-50 bg-white p-8"
+            ? "fixed top-0 left-0 h-full w-full z-50 bg-white p-8 transform translate-x-0 opacity-100"
             : "hidden"
         } md:block md:flex md:items-center md:ml-4 transition-transform duration-300 ease-in-out`}
       >
@@ -87,9 +87,6 @@ function Header(): JSX.Element {
       <div className="flex items-center mt-4 md:mt-0">
         <NavLink to="/cart">
           <Cart />
-        </NavLink>
-        <NavLink to="/login">
-          <AiOutlineUser className="text-2xl" />
         </NavLink>
       </div>
     </header>

@@ -27,7 +27,7 @@ export const CartContext = createContext<CartContextType>({
 //Creating provider
 export function CartProvider({children}: CartProviderProps) {
     const [cart, setCart] = useState<CartProduct[]>([]);
-    const [productQuantity, setProductQuantity] = useState<number>(0);
+    const [productQuantity, setProductQuantity] = useState<number>(1);
     /**
      * It adds a product to cart
      * @param product element to add to cart
@@ -59,13 +59,23 @@ export function CartProvider({children}: CartProviderProps) {
      */
     const handleQuantityInCart = (product: CartProduct, cart: CartProduct[], increment: Boolean) => {
       const productIndex = cart.findIndex((p) => p.id === product.id);
-
       if (productIndex !== -1) {
-        cart[productIndex].quantity += increment ? 1 : -1;
-        setProductQuantity(cart[productIndex].quantity);
-        return cart[productIndex].quantity;
-      }
+        const currentQuantity = cart[productIndex].quantity;
+        const newQuantity = increment
+          ? currentQuantity + 1
+          : Math.max(currentQuantity - 1, 1);
+        const maxStock = product.stock;
 
+        if (newQuantity <= maxStock) {
+          cart[productIndex].quantity = newQuantity;
+          setProductQuantity(newQuantity);
+          return newQuantity;
+        } else {
+          // Handle the case when the quantity exceeds the product's stock
+          // You can show an error message or take appropriate action here
+          return currentQuantity;
+        }
+      }
       return 0; // or handle the case when the product is not found in the cart
     };
     /**
