@@ -17,7 +17,7 @@ function CheckoutPage(): JSX.Element {
     <>
       <Breadcrumb />
       <div
-        className={`transition-opacity duration-500 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-screen-xl mx-auto px-4 ${
+        className={`transition-opacity duration-500 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-screen-xl mx-auto px-4${
           isContentLoaded ? "opacity-100" : "opacity-0"
         }`}
       >

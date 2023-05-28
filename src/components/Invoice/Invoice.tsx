@@ -14,7 +14,8 @@ interface InvoiceProps {
 
 function Invoice({payment}: InvoiceProps) : JSX.Element {
     const navigate = useNavigate();
-    const {enablePayment, amount} = usePayment();
+    const {enablePayment, amount, enableFinalPayment} = usePayment();
+    console.log(enablePayment, amount, enableFinalPayment)
     const { cart, clearCart } = useCart();
     const dispatch = useDispatch();
     const updatedProducts = useSelector(selectProducts)
@@ -71,21 +72,17 @@ function Invoice({payment}: InvoiceProps) : JSX.Element {
           </div>
           <div className="flex w-full">
             <NavLink
-              to={
-                payment
-                  ? enablePayment
-                    ? "/payment"
-                    : "/pay"
-                  : "/checkout"
-              }
+              to={payment ? (enablePayment ? "/payment" : "/pay") : "/checkout"}
               className="flex w-full"
             >
               {payment ? (
                 <button
-                  disabled={!enablePayment}
+                  disabled={!enablePayment && !enableFinalPayment}
                   onClick={handleClick}
                   className="flex items-center justify-center text-center bg-black text-white rounded-md px-3 mt-3 h-10 gap-2 w-full"
-                  style={{ opacity: enablePayment ? "1" : "0.5" }}
+                  style={{
+                    opacity: enablePayment ? "1" : "0.5", 
+                  }}
                 >
                   {enablePayment ? `Pay $${amount}` : "Continue Payment"}
                 </button>

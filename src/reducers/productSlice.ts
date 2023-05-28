@@ -22,6 +22,7 @@ const productSlice = createSlice({
   },
 });
 
+
 export const { setProducts, updateProductStock } = productSlice.actions;
 
 export const selectProducts = (state: any) => state.product.products;

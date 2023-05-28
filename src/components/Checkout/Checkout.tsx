@@ -5,7 +5,7 @@ import { getUser, updateUser } from "../../utilities/userAxios";
 import { usePayment } from "../../hooks/usePayment";
 
 function Checkout(): JSX.Element {
-    const { handleEnablePayment } = usePayment();
+    const { handleEnablePayment, handleFinalPayment } = usePayment();
     const formik = useFormik({
       initialValues: {
         id: 0,

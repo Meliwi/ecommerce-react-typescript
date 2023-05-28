@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Invoice from "../components/Invoice/Invoice";
 import Payment from "../components/Payment/Payment";
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 
 function PaymentPage() {
     const [isContentLoaded, setIsContentLoaded] = useState(false);
@@ -17,6 +18,7 @@ function PaymentPage() {
           isContentLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
+        <Breadcrumb />
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-5">
           <div className="col-span-6 border border-gray-100 p-10 rounded-lg">
             <h6 className="mb-5 font-bold text-lg">Payment Method</h6>
